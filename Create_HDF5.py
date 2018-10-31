@@ -22,7 +22,7 @@ def create_voc_datasets():
 
         image_path = "you may write your image file path"
         img = cv2.imread( image_path ) # you can also pre_process your image as you like, but the shape will be like( 128,256,3 )
-        hdf5_file[name][i,...] = img[None]
+        hdf5_file[name][i,...] = img[None] # img.shape=[128,256,3 ], but img[None].shape=[1,128,256,3]
 
 
 
