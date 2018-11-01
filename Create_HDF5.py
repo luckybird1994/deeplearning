@@ -3,10 +3,7 @@ import os
 import cv2
 import numpy as np
 
-
-
-def create_voc_datasets():
-
+def create_datasets():
 
     hdf5_path = os.path.join( "please write the path where you want save your hdf5 file")
     hdf5_file = h5py.File( hdf5_path, mode='w' )
@@ -23,6 +20,13 @@ def create_voc_datasets():
         image_path = "you may write your image file path"
         img = cv2.imread( image_path ) # you can also pre_process your image as you like, but the shape will be like( 128,256,3 )
         hdf5_file[name][i,...] = img[None] # img.shape=[128,256,3 ], but img[None].shape=[1,128,256,3]
+
+def load_datasets():
+
+    datapath = os.path.join( "please write the path of your hdf5 file" )
+    datasets = h5py.File( datapath, "r" )
+    datasets = np.array( datasets )
+    return datasets
 
 
 
