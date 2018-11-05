@@ -19,3 +19,6 @@ LABELS = ['aeroplane','bicycle','bird','boat','bottle','bus','car','cat','chair'
 
 for examples, class "aeroplane", and its rgb value is [128,0,0]; class "bicycle", and its rgb values is [0,128,0], etc....
 so, we can write the code...
+
+loss.py
+add some loss function that appeared in different paper
