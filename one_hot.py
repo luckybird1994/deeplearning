@@ -1,6 +1,11 @@
 import numpy as np
 import cv2
 
+"""
+one_hot操作的本质其实比如针对每一个像素来操作。我们这里我们这里有两类，其实要针对的操作就是对每一个
+像素进行的赋值。
+但是这里在我们resize的时候，会出现一个很奇怪的问题，就是他的边界的像素值会发生一些奇怪的改变。
+"""
 
 def one_hot_it(label, label_values):
 
@@ -23,7 +28,7 @@ def one_hot_it(label, label_values):
     for colour in label_values: #先找所有的[0,0,0],再找所有的[ 255,255,255 ]
         equality = np.equal(label, colour)
         print( "---",equality.shape )
-        class_map = np.all(equality, axis=-1) #最后一个通道
+        class_map = np.all(equality, axis=-1) #最后一个通道,类似axis=2
         print( "!!!",class_map.shape  )
         semantic_map.append(class_map)
 
